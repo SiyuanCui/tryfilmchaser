@@ -1,0 +1,113 @@
+{% load utils %} {% include "head.html" %}
+
+<div style="padding: 10px" class="admin-content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="module-name"> User </span>
+            <span>List</span>
+        </div>
+        <div class="panel-body">
+            <div class="pa10 bg-warning">
+                <form class="form-inline" id="formSearch" action="?">
+                    <!-- form 标签开始 -->
+
+                    <div class="form-group">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </div>
+
+                    <div class="form-group">
+                        Username
+
+                        <input type="text" class="form-control" style="" name="yonghuming" value="{{ request.GET.yonghuming }}" />
+                    </div>
+                    <div class="form-group">
+                        Name
+
+                        <input type="text" class="form-control" style="" name="xingming" value="{{ request.GET.xingming }}" />
+                    </div>
+                    <div class="form-group">
+                        Gender
+
+                        <select class="form-control class_xingbie1" data-value="{{ request.GET.xingbie }}" id="xingbie" name="xingbie">
+                            <option value="">Select</option>
+                            <option value="男">Male</option>
+                            <option value="女">Female</option>
+                        </select>
+                        <script>
+                            $(".class_xingbie1").val($(".class_xingbie1").attr("data-value"));
+                        </script>
+                    </div>
+                    <div class="form-group">
+                        Mobile
+
+                        <input type="text" class="form-control" style="" name="shouji" value="{{ request.GET.shouji }}" />
+                    </div>
+                    <div class="form-group">
+                        ID card
+
+                        <input type="text" class="form-control" style="" name="shenfenzheng" value="{{ request.GET.shenfenzheng }}" />
+                    </div>
+                    <select class="form-control" name="order" id="orderby">
+                        <option value="id">According to the published time</option>
+                    </select>
+                    <select class="form-control" name="sort" id="sort">
+                    <option value="desc"> Reverse order </option>
+<option value="asc"> Ascending  order</option>
+                    </select>
+                    <script>
+                        $("#orderby").val("{{ orderby }}");
+                        $("#sort").val("{{ sort }}");
+                    </script>
+                    <button type="submit" class="btn btn-default">搜索</button>
+
+                    <!--form标签结束-->
+                </form>
+            </div>
+
+            <div class="list-table">
+                <table width="100%" border="1" class="table table-list table-bordered table-hover">
+                    <thead>
+                        <tr align="center">
+                        <th width="60" data-field="item"> Serial number </th>
+<th> User name </th>
+<th> Password </th>
+<th> Name </th>
+<th> Gender </th>
+<th> Mobile phone </th>
+<th> Mailbox </th>
+<th> ID card </th>
+<th> Avatar </th>
+<th width="220" data-field="handler"> Operation </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for map in list %} {% with i=forloop.counter %}
+                        <tr id="{{ map.id }}" pid="">
+                            <td width="30" align="center">
+                                <label> {{ i }} </label>
+                            </td>
+                            <td>{{ map.yonghuming }}</td>
+                            <td>{{ map.mima }}</td>
+                            <td>{{ map.xingming }}</td>
+                            <td>{{ map.xingbie }}</td>
+                            <td>{{ map.shouji }}</td>
+                            <td>{{ map.youxiang }}</td>
+                            <td>{{ map.shenfenzheng }}</td>
+                            <td>{% if "" == map.touxiang %}-{% else %}<img width="100" src="{{ map.touxiang }}" />{% endif %}</td>
+                            <td align="center">
+                                <a href="/users/admin/updt/?id={{ map.id }}">编辑</a>
+
+                                <a href="/users/delete/?id={{ map.id }}" onclick="return confirm('确定要删除？')">删除</a>
+                                <!--qiatnalijne-->
+                            </td>
+                        </tr>
+                        {% endwith %}{% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            {% include "page.html" %}
+        </div>
+    </div>
+</div>
+{% include "foot.html" %}

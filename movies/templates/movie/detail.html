@@ -1,0 +1,227 @@
+{% load utils %}
+
+{% include "head.html" %}
+{% include "header.html" %}
+
+<link href="/static/js/video/video-js.min.css" rel="stylesheet">
+{#<script src="/static/js/video/ie8/videojs-ie8.js"></script>#}
+{#<script src="/static/js/video/video.min.js"></script>#}
+
+
+<div>
+
+
+    <div class="container" style="background-color: #fff">
+        <!-- 使用bootstrap css框架，container定宽，并剧中 https://v3.bootcss.com/css/#overview-container -->
+
+
+        <div class="bilibili" style="background:#FFFFFF;padding: 30px">
+            <div class="plp-l">
+                <div class="player-module">
+                    <div class="stardust-player">
+                        <div class="player">
+                            <div class="img-box pb120">
+                                <div class="img"
+                                     style="background-image: url('{{ map.pic }}')"></div>
+                            </div>
+                            {#                            <div class="bilibili-player relative">#}
+                            {#                                <div class="bilibili-player-area">#}
+                            {#                                    <div class="bilibili-player-video-wrap">#}
+                            {#                                        <video id="example_video_1" class="video-js vjs-default-skin"#}
+                            {#                                               style="width: 100%;height: 100%;min-height: 320px;" controls=""#}
+                            {#                                               preload="none" poster="images/play.png" data-setup="{}">#}
+                            {#                                            <source src="{{ map.shipin }}" type="video/mp4">#}
+                            {#                                            <track kind="captions" src="../shared/example-captions.vtt" srclang="en"#}
+                            {#                                                   label="English"></track>#}
+                            {#                                            <!-- Tracks need an ending tag thanks to IE9 -->#}
+                            {#                                            <track kind="subtitles" src="../shared/example-captions.vtt" srclang="en"#}
+                            {#                                                   label="English"></track>#}
+                            {#                                            <!-- Tracks need an ending tag thanks to IE9 -->#}
+                            {#                                            <p class="vjs-no-js">To view this video please enable JavaScript, and#}
+                            {#                                                consider upgrading to a web browser that <a#}
+                            {#                                                        href="http://videojs.com/html5-video-support/" target="_blank">supports#}
+                            {#                                                    HTML5 video</a></p>#}
+                            {#                                        </video>#}
+                            {#                                    </div>#}
+                            {#                                </div>#}
+                            {#                            </div>#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="plp-r">
+                <div class="media-wrapper" style="color:#535353;">
+                    <h1>{{ map.title }}</h1>
+
+                    {% if request.session.username != None and "" !=  request.session.username %}
+
+                        {% sql "SELECT count(*) count FROM collection WHERE table='movies' AND movie_id='%s' AND username='%s'" "find" map.id request.session.username as collection_count %}
+
+                        {% query 'collection' 'select' 'filter' "title" map.title as collection_result %}
+                        {% if collection_result.0.title == map.title %}
+                            <button type="button" class="btn btn-default"
+                                    onclick="location.href='../../../collection/insert/?movie_id={{ map.id }}&table=movies&title={{ map.title }}'">
+                                Undo collection
+                            </button>
+                        {% else %}
+                            <button type="button" class="btn btn-default"
+                                    onclick="location.href='../../../collection/insert/?movie_id={{ map.id }}&table=movies&title={{ map.title }}'">
+
+                                Collection
+                            </button>
+                        {% endif %}
+                    {% else %}
+                        <button type="button" class="btn btn-default"
+                                onclick="location.href='../../../collection/insert/?movie_id={{ map.id }}&table=movies&title={{ map.title }}'">
+
+                            collection
+                        </button>
+                    {% endif %}
+                    <div class="tool-bar clearfix">
+                        <div class="like-info">
+                        <span>
+                           The column                           :{{ map.columns.name }}                        </span>
+                        </div>
+                        <div class="like-info">
+                        <span>
+                            The director                          :{{ map.director }}                        </span>
+                        </div>
+                        <div class="like-info">
+                        <span>
+                            actor                            :{{ map.actor }}                        </span>
+                        </div>
+                        <div class="like-info">
+                        <span>
+                            Release time                          :{{ map.date }}                        </span>
+                        </div>
+                        <div class="like-info">
+                        <span>
+                            collection                          :{{ map.collection_count }}                        </span>
+                        </div>
+                        <div class="like-info">
+                        <span>
+                            views                           :{{ map.visit_count }}                        </span>
+                        </div>
+                        <div class="like-info">
+                        <span>
+                            comments                         :{{ map.issues_count }}                        </span>
+                        </div>
+                        <div class="like-info">
+                        <span>
+                            Genres                           :{{ map.tags }}                        </span>
+                        </div>
+                    </div>
+                    <div class="media-info clearfix">
+                        <div class="media-right">
+                            <div class="media-rating">
+                                <h4 class="score">{{ map.score }}</h4>
+                            </div>
+
+
+                            <div class="media-desc">
+                                {{ map.intro|striptags|slice:1200 }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- container定宽，并剧中结束 --></div>
+
+
+</div>
+
+
+<div>
+
+
+    <div class="container" style="background-color: #fff">
+        <!-- 使用bootstrap css框架，container定宽，并剧中 https://v3.bootcss.com/css/#overview-container -->
+
+
+        <div class="gr-control-module-table" style="margin:15px 0 15px 0;background-color:#FFFFFF;padding: 30px">
+            <div class="">
+                <h1>Reviews</h1>
+                <form action="/issues/insert/" method="post"><!-- form 标签开始 -->
+
+                    <div class="form-group">
+                        <div class="row">
+
+                            <div class="col-sm-10">
+                                score
+                                <select class="form-control" name="score" style="width: 200px;margin-left: 0px">
+
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+
+                        <textarea style="width: 80%;height: 120px" class="form-control" name="content"
+                                  placeholder="Please enter some comment..."></textarea>
+
+                    </div>
+                    <input type="hidden" name="title" value="movie"/>
+                    <input name="id" type="hidden" id="id" value="{{ request.GET.id }}"/>
+                    <input name="title" type="hidden" id="title" value="{{ map.title }}"/>
+                    <input name="author" type="hidden" value="{{ request.session.name }}"/>
+                    <div style="text-align: left">
+                        <button type="submit" class="btn btn-primary">
+                            Post a comment
+                        </button>
+                    </div>
+
+                    <!--form标签结束--></form>
+            </div>
+
+            {#            {% query 'issues' 'select' 'filter' "table" "movies" 'filter' "tableid" request.GET.id "order" '-id' as commentList %}#}
+            {% query 'issues' 'select' 'filter' "tableid" request.GET.id as commentList %}
+            <div class="mt10">
+                {% for review in commentList %}
+                    {% query 'users' 'find' 'filter' "name" review.author as user %}
+
+                    <div class="comment clearfix">
+                        <div class="common-avatar J_User">
+                            {% if user.photo == None or "" == user.photo %}
+                                <img src="images/default.gif" width="100%" height="100%"/>
+                            {% else %}
+                                <img src="{{ user.photo }}" width="100%" height="100%"/>
+                            {% endif %}
+                        </div>
+                        <div class="comment-block">
+                            <p class="comment-user">
+                                <span class="comment-username J_User"> {{ user.name }} </span>
+                                <span class="comment-time">{{ review.addtime }}</span>
+                                <span class="comment-time">score：{{ review.score }}</span>
+
+                            </p>
+                            <div class="comment-content J_CommentContent">{{ review.content }}</div>
+
+
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+
+        <!-- container定宽，并剧中结束 --></div>
+
+
+</div>
+
+
+{% include "footer.html" %}
+{% include "foot.html" %}

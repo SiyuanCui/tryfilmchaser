@@ -1,0 +1,71 @@
+{% load utils %}
+
+<!doctype html>
+<html class="x-admin-sm">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie recommendation system - the background to log in</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="/static/./css/font.css">
+    <link rel="stylesheet" href="/static/./css/login.css">
+    <link rel="stylesheet" href="/static/./css/xadmin.css">
+    <script type="text/javascript" src="/static/./js/jquery.min.js"></script>
+    <script src="/static/./lib/layui/layui.js" charset="utf-8"></script>
+    <!--[if lt IE 9]>
+    <script src="/static/https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="/static/https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="login-bg">
+
+<div class="login layui-anim layui-anim-up">
+    <div class="message">Movie recommendation system - management to log in</div>
+    <div id="darkbannerwrap"></div>
+    <form method="post" class="layui-form" action="/login/?admin=1&a=a">
+        <input name="username" placeholder="user name" type="text" lay-verify="required" class="layui-input">
+        <hr class="hr15">
+        <input name="pwd" lay-verify="required" placeholder="password" type="password" class="layui-input">
+        <hr class="hr15">
+        <select name="user_type" class="layui-select">
+            <option value="admin">Admin</option>
+        </select>
+        <hr class="hr15">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="pagerandom" placeholder="code" class="layui-input" lay-verify="required">
+                </div>
+                <img alt="The refresh verification code"
+                     onClick="this.src='/common/captcha/?time='+new Date().getTime();"
+                     src="/common/captcha/" style="cursor:pointer; padding-top:10px;">
+            </div>
+        </div>
+        <hr class="hr15">
+        <input value="Login" lay-submit lay-filter="login" style="width:100%;" type="submit">
+        <hr class="hr20">
+    </form>
+</div>
+
+<script>
+    $(function () {
+        layui.use('form', function () {
+            var form = layui.form;
+            // layer.msg('玩命卖萌中', function(){
+            //   //关闭后的操作
+            //   });
+            //监听提交
+            form.on('submit(login)', function (data) {
+                // alert(888)
+
+                return true;
+            });
+        });
+    })
+</script>
+<!-- 底部结束 -->
+</body>
+</html>

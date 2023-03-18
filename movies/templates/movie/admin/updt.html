@@ -1,0 +1,218 @@
+{% load utils %} {% include "head.html" %}
+<script src="/static/js/jquery.validate.js"></script>
+<link href="/static/js/tags/tags.css" rel="stylesheet" />
+<script src="/static/js/tags/tags.js"></script>
+<script src="/static/js/datepicker/WdatePicker.js"></script>
+<link rel="stylesheet" href="/static/js/layer/theme/default/layer.css" />
+<script src="/static/js/layer/layer.js"></script>
+<link href="/static/upload/upload.css" rel="stylesheet" />
+<script src="/static/upload/upload.js"></script>
+<link rel="stylesheet" href="/static/js/umeditor/themes/default/css/umeditor.css" />
+<script src="/static/js/umeditor/umeditor.config.js"></script>
+<script src="/static/js/umeditor/umeditor.min.js"></script>
+
+<div style="padding: 10px" class="admin-content">
+    <div class="container">
+        <!-- 使用bootstrap css框架，container定宽，并剧中 https://v3.bootcss.com/css/#overview-container -->
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Edit the movie:</div>
+            <div class="panel-body">
+                <form action="/movies/update/" method="post" name="form1" id="form1">
+                    <!-- form 标签开始 -->
+
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs">Title<span style="color: red">*</span></label>
+                            <div class="col-sm-10">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Enter the title"
+                                    style="width: 250px"
+                                    data-rule-required="true"
+                                    data-msg-required="Enter the title"
+                                    id="biaoti"
+                                    name="biaoti"
+                                    value="{{ mmm.biaoti }}"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs">The column<span style="color: red">*</span></label>
+                            <div class="col-sm-10">
+                                <select
+                                    class="form-control class_lanmu4"
+                                    data-value="{{ mmm.lanmu.id }}"
+                                    data-rule-required="true"
+                                    data-msg-required="Please fill out the columns"
+                                    id="lanmu"
+                                    name="lanmu"
+                                    style="width: 250px"
+                                >
+                                    {% sql "SELECT * FROM columns ORDER BY id desc" 'select' as select %} {% for m in select %}
+                                    <option value="{{ m.id }}">{{ m.lanmumingcheng }}</option>
+                                    {% endfor %}
+                                </select>
+                                <script>
+                                    $(".class_lanmu4").val($(".class_lanmu4").attr("data-value"));
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs">The director<span style="color: red">*</span></label>
+                            <div class="col-sm-10">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Enter The director"
+                                    style="width: 150px"
+                                    data-rule-required="true"
+                                    data-msg-required="Please Enter The director"
+                                    id="daoyan"
+                                    name="daoyan"
+                                    value="{{ mmm.daoyan }}"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs">Actor<span style="color: red">*</span></label>
+                            <div class="col-sm-10">
+                                <input data-rule-required="true" data-msg-required="Please fill out the actor" id="yanyuan" name="yanyuan" value="{{ mmm.yanyuan }}" type="text" />
+                                <script>
+                                    $(function () {
+                                        $("#yanyuan").tagInput();
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs">Release time</label>
+                            <div class="col-sm-10">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',lang:'zh-cn'})"
+                                    style="width: 120px"
+                                    readonly="readonly"
+                                    id="shangyingshijian"
+                                    name="shangyingshijian"
+                                    value="{{ mmm.shangyingshijian }}"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs">Film<span style="color: red">*</span></label>
+                            <div class="col-sm-10">
+                                <div class="input-group" style="width: 250px">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        data-rule-required="true"
+                                        data-msg-required="Please fill in the film"
+                                        id="shipin"
+                                        name="shipin"
+                                        value="{{ mmm.shipin }}"
+                                    />
+
+                                    <span class="input-group-btn"
+                                        ><button
+                                            type="button"
+                                            class="btn btn-default"
+                                            onclick="layer.open({type:2,title:'Upload a file',fixed:true,shadeClose:true,shade:0.5,area:['320px','150px'],content:'/static/upload.html?result=shipin'})"
+                                        >
+                                            Upload a file
+                                        </button></span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs">posters</label>
+                            <div class="col-sm-10">
+                                <div class="file-upload-box file-upload-image file-upload-box-1x" data-image="true" data-url="/">
+                                    <div class="thumb">
+                                        <img src="{{ mmm.haibao }}" />
+                                    </div>
+                                    <a href="javascript:;" class="close">╳</a>
+                                    <div class="upload-btn">
+                                        <span> To upload pictures </span>
+                                    </div>
+                                    <input type="hidden" name="haibao" id="haibao" value="{{ mmm.haibao }}" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs">The label</label>
+                            <div class="col-sm-10">
+                                <input id="biaoqian" name="biaoqian" value="{{ mmm.biaoqian }}" type="text" />
+                                <script>
+                                    $(function () {
+                                        $("#biaoqian").tagInput();
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs">Introduction</label>
+                            <div class="col-sm-10">
+                                <textarea id="jianjie" name="jianjie" style="max-width: 750px; width: 100%; height: 300px">{{ mmm.jianjie }}</textarea>
+                                <script>
+                                    (function () {
+                                        var um = UM.getEditor("jianjie");
+                                    })();
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs"> </label>
+                            <div class="col-sm-10">
+                                  <input name="shoucangliang" value="{{ mmm.shoucangliang }}" type="hidden" />
+                                  <input name="liulanliang" value="{{ mmm.liulanliang }}" type="hidden" />
+                                  <input name="pinglunshu" value="{{ mmm.pinglunshu }}" type="hidden" />
+                                 <input name="pingfen" value="{{ mmm.pingfen }}" type="hidden" />
+
+
+                                <input name="id" value="{{ mmm.id }}" type="hidden" />
+                                <input name="referer" value="{{ request.headers.referer }}" type="hidden" />
+                                <input name="updtself" value="{{ updtself }}" type="hidden" />
+
+                                <button type="submit" class="btn btn-primary" name="Submit">Submit</button>
+                                <button type="reset" class="btn btn-default" name="Submit2">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--form标签结束-->
+                </form>
+            </div>
+        </div>
+
+        <!-- container定宽，并剧中结束 -->
+    </div>
+
+    <script>
+        $(function () {
+            $("#form1").validate();
+        });
+    </script>
+</div>
+{% include "foot.html" %}

@@ -1,0 +1,117 @@
+{% load utils %} {% include "head.html" %} {% include "header.html" %}
+
+<script src="/static/js/datepicker/WdatePicker.js"></script>
+
+<div>
+    <div class="container" style="margin-bottom: 20px;background-color: #fff">
+        <!-- 使用bootstrap css框架，container定宽，并剧中 https://v3.bootcss.com/css/#overview-container -->
+
+        <div class="v2-case clearfix">
+            <div>
+                <form action="?" class="search">
+                    <table class="jd-search">
+                        <tbody>
+                        <tr>
+                            <td class="label1">Title/Label</td>
+                            <td class="form-inline">
+                                Title<input type="text" class="form-control" style="width: 150px" name="title"
+                                       value="{{ request.GET.title }}" placeholder="Please enter the keywords"/>
+
+                                Label<input type="text" class="form-control" name="tags" value="{{ request.GET.tags }}"/>
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="label1">The director/Actor</td>
+                            <td class="form-inline">
+                               The director <input type="text" class="form-control" style="width: 150px" name="director"
+                                       value="{{ request.GET.director }}" placeholder="Please enter the keywords"/>Actor<input type="text" class="form-control" name="actor" value="{{ request.GET.actor }}"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="label1">Release time</td>
+                            <td class="form-inline"><input type="text" class="form-control"
+                                                           name="movie_start" readonly="readonly"
+                                                           onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',lang:'zh-cn'})"/>-<input
+                                    type="text"
+                                    class="form-control"
+                                    name="movie_end"
+                                    readonly="readonly"
+                                    onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',lang:'zh-cn'})"
+                            /></td>
+                        </tr>
+
+
+
+                        <tr>
+                            <td class="label1">The column</td>
+                            <td class="form-inline">
+                                <p class="search-radio">
+                                    <input type="hidden" name="column" value="{{ request.GET.column }}"/>
+                                    <a href="javascript:;" data-value="" onclick="selectRadio(this)">All</a>
+                                    {% sql "SELECT id,name FROM columns" 'select' as columns2 %}
+                                    {% for r in columns2 %}
+                                        <a href="javascript:;" data-value="{{ r.id }}"
+                                           onclick="selectRadio(this)">{{ r.name }}</a>
+                                    {% endfor %}
+                                </p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="label1">The sorting</td>
+                            <td class="form-inline">
+
+<select class="form-control" name="order" id="orderby">
+                    <option value="id">According to the published time</option>
+                    <option value="collection_count">According to the collection</option>
+                    <option value="visit_count">According to the traffic</option>
+                    <option value="issues_count">According to the comments</option>
+                    <option value="score">According to the score</option>
+                    <option value="addtime">According to add time</option>
+                </select>
+                <select class="form-control" name="sort" id="sort">
+                    <option value="desc">Reverse order</option>
+                    <option value="asc">Ascending order</option>
+                </select>
+                <script>
+                    $("#orderby").val("{{ orderby }}");
+                    $("#sort").val("{{ sort }}");
+                </script>
+                                 <button type="submit" class="btn btn-default">search</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+            <div class="row v2-list">
+                {% for r in list %}
+                    <div class="col-md-3 v2-list-col">
+                        <a href="/movies/detail/?id={{ r.id }}" class="v2-case__box__img">
+                            <div class="img-box pb120">
+                                <div href="javascript:;" class="img"
+                                     style="background-image: url('{{ r.pic }}')"></div>
+                            </div>
+                        </a>
+                        <a href="/movies/detail/?id={{ r.id }}" class="v2-case__h2">
+                            <h3>
+                                {{ r.title }}
+                                <i></i>
+                            </h3>
+                            <h4>Score:{{ r.score }}</h4>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            {% include "page.html" %}
+        </div>
+
+
+
+    </div>
+</div>
+
+{% include "footer.html" %} {% include "foot.html" %}

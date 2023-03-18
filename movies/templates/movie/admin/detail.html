@@ -1,0 +1,153 @@
+{% load utils %}
+    
+    
+{% include "head.html" %}
+<link href="/static/js/video/video-js.min.css" rel="stylesheet">
+<script src="/static/js/video/ie8/videojs-ie8.js"></script>
+<script src="/static/js/video/video.min.js"></script>
+
+<div style="padding: 10px" class="admin-content">
+
+
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        电影详情
+    </div>
+    <div class="panel-body">
+
+        <div class="admin-detail clearfix">
+                            <div class="detail detail-longtext">
+                <div class="detail-title">
+                    标题：
+                </div>
+                <div class="detail-content">
+                    {{ map.biaoti }}
+                </div>
+            </div>                            <div class="detail detail-select">
+                <div class="detail-title">
+                    栏目：
+                </div>
+                <div class="detail-content">
+                    {{ map.lanmu.lanmumingcheng }}
+                </div>
+            </div>                            <div class="detail detail-text">
+                <div class="detail-title">
+                    导演：
+                </div>
+                <div class="detail-content">
+                    {{ map.daoyan }}
+                </div>
+            </div>                            <div class="detail detail-spec">
+                <div class="detail-title">
+                    演员：
+                </div>
+                <div class="detail-content">
+                    {{ map.yanyuan }}
+                </div>
+            </div><div class="detail detail-spec">
+                <div class="detail-title">
+                    标签：
+                </div>
+                <div class="detail-content">
+                    {{ map.biaoqian }}
+                </div>
+            </div>                            <div class="detail detail-date">
+                <div class="detail-title">
+                    上映时间：
+                </div>
+                <div class="detail-content">
+                    {{ map.shangyingshijian }}
+                </div>
+            </div>                                                        <div class="detail detail-image">
+                <div class="detail-title">
+                    海报：
+                </div>
+                <div class="detail-content">
+                    <img src="{{ map.haibao }}" style="width: 350px"/>
+                </div>
+            </div>                            <div class="detail detail-number">
+                <div class="detail-title">
+                    收藏量：
+                </div>
+                <div class="detail-content">
+                    {{ map.shoucangliang }}
+                </div>
+            </div><div class="detail detail-number">
+                <div class="detail-title">
+                    浏览量：
+                </div>
+                <div class="detail-content">
+                    {{ map.liulanliang }}
+                </div>
+            </div><div class="detail detail-number">
+                <div class="detail-title">
+                    评论数：
+                </div>
+                <div class="detail-content">
+                    {{ map.pinglunshu }}
+                </div>
+            </div>                            <div class="detail detail-money">
+                <div class="detail-title">
+                    评分：
+                </div>
+                <div class="detail-content">
+                    {{ map.pingfen }}
+                </div>
+            </div>                                                        <div class="detail detail-autotime">
+                <div class="detail-title">
+                    添加时间：
+                </div>
+                <div class="detail-content">
+                    {{ map.addtime|date:'Y-m-d H:i:s' }}
+                </div>
+            </div>            
+            <div class="detail detail-video">
+                <div class="detail-title">
+                    电影：
+                </div>
+                <div class="detail-content">
+                    <video id="example_video_1" class="video-js vjs-default-skin" style="width: 100%;height: 100%;min-height: 320px;" controls="" preload="none" poster="images/play.png" data-setup="{}">
+                    <source src="{{ map.shipin }}" type="video/mp4">
+                    <track kind="captions" src="../shared/example-captions.vtt" srclang="en" label="English"></track>
+                    <!-- Tracks need an ending tag thanks to IE9 -->
+                    <track kind="subtitles" src="../shared/example-captions.vtt" srclang="en" label="English"></track>
+                    <!-- Tracks need an ending tag thanks to IE9 -->
+                    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+                </source></video>
+                </div>
+            </div>                                                <div class="detail detail-editor">
+                <div class="detail-title">
+                    简介：
+                </div>
+                <div class="detail-content">
+                    {{ map.jianjie|safe }}
+                </div>
+            </div>        </div>
+
+        <div class="button-list mt10">
+            <div class="">
+                <button type="button" class="btn btn-default" onclick="history.go(-1);">
+    返回
+                
+</button>
+                <button type="button" class="btn btn-default" onclick="window.print()">
+    打印本页
+                
+</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+</div>
+{% include "foot.html" %}

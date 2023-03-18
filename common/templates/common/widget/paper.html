@@ -1,0 +1,10 @@
+<textarea name="{{ widget.name }}" id="{{ widget.id }}" style="display: none">{{ widget.value }}</textarea>
+<script>
+    new PaperForm({
+        el:'#{{ widget.id }}',
+        type:'{% if widget.type %}{{ widget.type }}{% else %}leixing{% endif %}',
+        danxuanti:'{{ widget.danxuanti }}',
+        duoxuanti:'{{ widget.duoxuanti }}',
+        panduanti:'{{ widget.panduanti }}',
+    });
+</script>

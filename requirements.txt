@@ -1,0 +1,16 @@
+asgiref @ file:///tmp/build/80754af9/asgiref_1625643473416/work
+certifi @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_477u68wvzm/croot/certifi_1671487773341/work/certifi
+Django==2.1.5
+et-xmlfile==1.1.0
+flit_core @ file:///opt/conda/conda-bld/flit-core_1644941570762/work/source/flit_core
+mysql-connector-python==8.0.32
+mysqlclient==2.1.1
+numpy==1.21.6
+olefile==0.46
+openpyxl==3.0.10
+Pillow==8.4.0
+protobuf==3.20.3
+PyMySQL==1.0.2
+pytz==2021.3
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+typing_extensions @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_4b7xacf029/croot/typing_extensions_1669923792404/work

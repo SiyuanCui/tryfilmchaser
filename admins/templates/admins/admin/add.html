@@ -1,0 +1,72 @@
+{% load utils %} {% include "head.html" %}
+<script src="/static/js/jquery.validate.js"></script>
+
+<div style="padding: 10px" class="admin-content">
+    <div class="container">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Add Administrator:</div>
+            <div class="panel-body">
+                <form action="/admins/insert/" method="post" name="form1" id="form1">
+
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs">accounts<span style="color: red">*</span></label>
+                            <div class="col-sm-10">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Enter Account Number"
+                                    style="width: 150px"
+                                    data-rule-required="true"
+                                    data-msg-required="Please fill in the account number"
+                                    remote="/common/checkno/?checktype=insert&table=admins&col=username"
+                                    data-msg-remote="The content is duplicated"
+                                    id="username"
+                                    name="username"
+                                    value=""
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs">password<span style="color: red">*</span></label>
+                            <div class="col-sm-10">
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    placeholder="Input password"
+                                    style="width: 150px"
+                                    data-rule-required="true"
+                                    data-msg-required="Please fill in the password"
+                                    id="pwd"
+                                    name="pwd"
+                                    value=""
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs"> </label>
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary" name="Submit">submit to</button>
+                                <button type="reset" class="btn btn-default" name="Submit2">resetting</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        $(function () {
+            $("#form1").validate();
+        });
+    </script>
+</div>
+{% include "foot.html" %}

@@ -1,0 +1,30 @@
+{% load utils %} {% include "head.html" %} {% include "header.html" %}
+<script src="/static/js/jquery.validate.js"></script>
+<div class="container">
+    <!--  Use the bootstrap css framework to fix the width of the container and https://v3.bootcss.com/css/#overview -container -->
+    <div class="panel panel-default">
+        <div class="panel heading">Add a favorite:</div>
+        <div class="panel-body">
+            <form action="/collection/insert/" method="post" name="form1" id="form1">
+                <!--  Form tag start -->
+                <div class="form-group">
+                    <div class="row">
+                        <label style="text-align: right" class="col-sm-2 hiddex-xs"> </label>
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn primary" name="Submit">Submit</button>
+                            <button type="reset" class="btn btn default" name="Submit2">Reset</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of form tag -->
+            </form>
+        </div>
+    </div>
+    <!--  The container is fixed in width and ends in the play -->
+</div>
+<script>
+    $(function () {
+        $("#form1").validate();
+    });
+</script>
+{% include "footer.html" %} {% include "foot.html" %}

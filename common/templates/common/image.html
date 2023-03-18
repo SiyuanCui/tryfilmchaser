@@ -1,0 +1,12 @@
+<div class="file-upload-box file-upload-image file-upload-box-1x {% if widget.value == None %} empty-file{% endif %}" data-image="true">
+    <div class="thumb">
+        <img {% if widget.value != None %} src="{{ widget.value }}"{% else %} src=""{% endif %}/>
+    </div>
+    <a href="javascript:;" class="close">╳</a>
+    <div class="upload-btn">
+        <span>
+            upload image
+        </span>
+    </div>
+    <input type="text" name="{{ widget.name }}" id="name" style="display: none" {% if widget.value != None %} value="{{ widget.value|stringformat:'s' }}"{% endif %}/>
+</div>

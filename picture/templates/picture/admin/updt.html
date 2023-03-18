@@ -1,0 +1,97 @@
+{% load utils %} {% include "head.html" %}
+<script src="/static/js/jquery.validate.js"></script>
+<link href="/static/upload/upload.css" rel="stylesheet" />
+<script src="/static/upload/upload.js"></script>
+
+<div style="padding: 10px" class="admin-content">
+    <div class="container">
+        <!-- Use the bootstrap css framework to fix the width of the container and https://v3.bootcss.com/css/#overview-container -->
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Edit them by figure:</div>
+            <div class="panel-body">
+                <form action="/picture/update/" method="post" name="form1" id="form1">
+                    <!-- form 标签开始 -->
+
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs">Title<span style="color: red">*</span></label>
+                            <div class="col-sm-10">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Enter the title"
+                                    style="width: 150px"
+                                    data-rule-required="true"
+                                    data-msg-required="Please Enter the titl"
+                                    id="title"
+                                    name="title"
+                                    value="{{ mmm.title }}"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs">The picture<span style="color: red">*</span></label>
+                            <div class="col-sm-10">
+                                <div class="file-upload-box file-upload-image file-upload-box-1x" data-image="true" data-url="/">
+                                    <div class="thumb">
+                                        <img src="{{ mmm.image }}" />
+                                    </div>
+                                    <a href="javascript:;" class="close">╳</a>
+                                    <div class="upload-btn">
+                                        <span> Upload pictures </span>
+                                    </div>
+                                    <input type="hidden" name="image" id="image" value="{{ mmm.image }}" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs">The link address<span style="color: red">*</span></label>
+                            <div class="col-sm-10">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Enter The link address"
+                                    style="width: 250px"
+                                    data-rule-required="true"
+                                    data-msg-required="Please Enter The link address"
+                                    id="url"
+                                    name="url"
+                                    value="{{ mmm.url }}"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs"> </label>
+                            <div class="col-sm-10">
+                                <input name="id" value="{{ mmm.id }}" type="hidden" />
+                                <input name="referer" value="{{ request.headers.referer }}" type="hidden" />
+                                <input name="updtself" value="{{ updtself }}" type="hidden" />
+
+                                <button type="submit" class="btn btn-primary" name="Submit">Submit</button>
+                                <button type="reset" class="btn btn-default" name="Submit2">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--form标签结束-->
+                </form>
+            </div>
+        </div>
+
+        <!-- container定宽，并剧中结束 -->
+    </div>
+
+    <script>
+        $(function () {
+            $("#form1").validate();
+        });
+    </script>
+</div>
+{% include "foot.html" %}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tips</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="0" http-equiv="expires">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        A {
+            color: #1c57c4;
+            text-decoration: none;
+        }
+
+        A:hover {
+            color: #1c57c4;
+            text-decoration: none;
+        }
+        html {
+            background: #F0F0F0;
+        }
+        .message {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+            max-width: 450px;
+            width: 100%;
+            background: #FFF;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+        }
+        .msg_title {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #666;
+        }
+        .click_href {
+            margin-top: 10px;
+        }
+        .click_href a {
+            display: inline-block;
+            padding: 3px 5px;
+            margin-right: 10px;
+        }
+        .msg_error,.msg_wang,.msg_why,.msg_stop,.msg_success{ width:64px; height:64px;}
+        .msg_error{ background:url(/static/images/error.jpg) no-repeat;}
+        .msg_wang{ background:url(/static/images/wang.jpg) no-repeat;}
+        .msg_why{ background:url(/static/images/why.jpg) no-repeat;}
+        .msg_stop{ background:url(/static/images/stop.jpg) no-repeat;}
+        .msg_success{ background:url(/static/images/success.jpg) no-repeat;}
+    </style>
+</head>
+<body>
+
+<div class="message">
+    <div class="pa10 clearfix">
+        <div class="msg_{{ icon }} fl mr10"></div>
+        <div class="msg_title">
+            {{ msg }}
+        </div>
+    </div>
+    <div class="pa10">
+        {% if auto_redirect %}
+        <div class="auto_redirect">
+            <A href="{{ href }}">System will be in
+                <span id="js_auto_redirect">{{ auto_time }}</span>
+               Seconds after the jump automatically...
+            </A>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% if auto_redirect %}
+<script>
+    var auto_time = {{ auto_time }}
+    var auto_href = '{{ href }}';
+
+    function auto_redirect() {
+        auto_time--;
+        if (auto_time <= 0) {
+            document.getElementById('js_auto_redirect').click();
+        } else {
+            document.getElementById('js_auto_redirect').innerHTML = auto_time;
+            setTimeout(auto_redirect, 1000);
+        }
+    }
+    setTimeout(auto_redirect, 1000);
+</script>
+{% endif %}
+</body>
+</html>

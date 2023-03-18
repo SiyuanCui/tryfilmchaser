@@ -1,0 +1,86 @@
+{% load utils %}
+
+
+{% include "head.html" %}
+
+<script src="js/jquery.validate.js"></script>
+
+
+<div class="container" style="max-width:640px">
+    <!-- 使用bootstrap css框架，container定宽，并剧中 https://v3.bootcss.com/css/#overview-container -->
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Change the password:
+        </div>
+        <div class="panel-body">
+            <form action="/common/mod/" method="post" name="form1" id="form1"><!-- form 标签开始 -->
+
+                <div class="form-group">
+                    <div class="row">
+                        <label style="text-align: right" class="col-sm-2 hiddex-xs">The original password<span
+                                style="color: red;">*</span></label>
+                        <div class="col-sm-10">
+
+                            <input type="password" class="form-control" autocomplete="off" placeholder="Password"
+                                   required="true" data-msg-required="请输入原密码" name="oldPwd"/>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label style="text-align: right" class="col-sm-2 hiddex-xs">New Password<span
+                                style="color: red;">*</span></label>
+                        <div class="col-sm-10">
+
+                            <input type="password" class="form-control" autocomplete="off" placeholder="New Password"
+                                   required="true" data-msg-required="请输入新密码" id="xmm" name="newPwd"/>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label style="text-align: right" class="col-sm-2 hiddex-xs">Confirm Password<span
+                                style="color: red;">*</span></label>
+                        <div class="col-sm-10">
+
+                            <input type="password" class="form-control" autocomplete="off"
+                                   placeholder="Confirm Password" required="true" data-msg-required="请输入确认密码"
+                                   equalto="#xmm" name="newPwd2"/>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+
+
+                    <button type="submit" class="btn btn-primary" name="Submit">
+                        Submit
+                    </button>
+                    <button type="reset" class="btn btn-default" name="Submit2">
+                        Reset
+                    </button>
+
+                </div>
+
+                <!--form标签结束--></form>
+        </div>
+    </div>
+
+    <!-- container定宽，并剧中结束 --></div>
+
+
+<script>
+    $(function () {
+        $('#form1').validate();
+    });
+</script>
+
+
+{% include "foot.html" %}
+

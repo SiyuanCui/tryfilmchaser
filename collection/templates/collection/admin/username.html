@@ -1,0 +1,79 @@
+{% load utils %} {% include "head.html" %}
+<div style="padding: 10px" class="admin-content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="module name">Favorites</span>
+            <span>List</span>
+        </div>
+        <div class="panel-body">
+            <div class="pa10 bg-warning">
+                <form class="form-inline" id="formSearch" action="?">
+                    <!--  Form tag start -->
+                    <div class="form-group">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </div>
+                    <div class="form-group">
+                        title
+                        <input type="text" class="form-control" style="" name="biaoti"
+                               value="{{ request.GET.biaoti }}"/>
+                    </div>
+                    <select class="form-control" name="order" id="orderby">
+                        <option value="id">By publishing time</option>
+                    </select>
+                    <select class="form-control" name="sort" id="sort">
+                        <option value="desc">Reverse order</option>
+                        <option value="asc">Ascending</option>
+                    </select>
+                    <script>
+                        $("#orderby").val("{{ orderby }}");
+                        $("#sort").val("{{ sort }}");
+                    </script>
+                    <button type="submit" class="btn btn default">Search</button>
+                    <!-- End of form tag -->
+                </form>
+            </div>
+            <form action="/collection/admin/batch/" method="post" id="form-batch">
+                <div class="list-table">
+                    <table width="100%" border="1" class="table table-list table-bordered table-hover">
+                        <thead>
+                        <tr align="center">
+                            <th width="60" data field="item">SN</th>
+                               <th> Title</th>
+                                <th> Collection time</th>
+                            <th width="220" data field="handler">Operation</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for map in list %} {% with i=forloop.counter %}
+                            <tr id="{{ map.id }}" pid="">
+                                <td width="30" align="center">
+                                    <label>
+                                        <input type="checkbox" name="ids" class="ids" value="{{ map.id }}"/>
+                                        {{ i }}
+                                    </label>
+                                </td>
+                                <td>{{ map.biaoti }}</td>
+                                <td>{{ map.addtime|date:'Y-m-d H:i:s' }}</td>
+                                <td align="center">
+                                    <a target="_blank" href="/{{ map. biao }}/detail/? Id={{ map. xwid }}">Details</a>
+                                    <a href="/collection/delete/?id={{ map.id }}"
+                                       Onclick="return confirm ('Are you sure you want to delete? ')">Delete</a>
+                                    <!-- qiatnalijne-->
+                                </td>
+                            </tr>
+                        {% endwith %}{% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="" style="margin-top: 10px">
+                    <label><input type="checkbox" value="1"
+                                  Onclick="$('. list-table input. ids'). prop ('checked', this. checked)"/>Select
+                        All/Don't Select All</label>
+                    <input type="submit" name="delete" value="batch delete"/>
+                </div>
+            </form>
+            {% include "page.html" %}
+        </div>
+    </div>
+</div>
+{% include "foot.html" %}

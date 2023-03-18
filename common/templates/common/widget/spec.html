@@ -1,0 +1,7 @@
+
+<input name="{{ widget.name }}" id="{{ widget.id }}" value="{{ widget.value }}" style="display: none">
+<script>
+    django.jQuery(function (){
+        django.jQuery('#{{ widget.id }}').tagInput()
+    })
+</script>

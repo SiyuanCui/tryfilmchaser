@@ -1,0 +1,43 @@
+{% load utils %} {% include "head.html" %} {% include "header.html" %}
+<script src="/static/js/jquery.validate.js"></script>
+
+<div class="container">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Add the browsing history:</div>
+        <div class="panel-body">
+            <form action="/history/insert/" method="post" name="form1" id="form1">
+                <!-- form 标签开始 -->
+
+                <div class="form-group">
+                    <div class="row">
+                        <label style="text-align: right" class="col-sm-2 hiddex-xs"> </label>
+                        <div class="col-sm-10">
+                            <input name="referer" id="referers" class="referers" value="{{ request.headers.referer }}" type="hidden" />
+                            <script>
+                                $(function () {
+                                    $("input.referers").val(document.referrer);
+                                });
+                            </script>
+
+                            <button type="submit" class="btn btn-primary" name="Submit">Submit</button>
+                            <button type="reset" class="btn btn-default" name="Submit2">Reset</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!--form标签结束-->
+            </form>
+        </div>
+    </div>
+
+    <!-- container定宽，并剧中结束 -->
+</div>
+
+<script>
+    $(function () {
+        $("#form1").validate();
+    });
+</script>
+
+{% include "footer.html" %} {% include "foot.html" %}

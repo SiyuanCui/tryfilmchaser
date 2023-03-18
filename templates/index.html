@@ -1,0 +1,360 @@
+{% load utils %}
+
+{% include "head.html" %}
+{% include "header.html" %}
+
+
+<link rel="stylesheet" href="/static/js/swiper/swiper.css">
+<script src="/static/js/swiper/swiper.js"></script>
+<style type="text/css">
+    #header-box {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 999999;
+        /*background-image :url("/ship_three/images/tl.png");设置背景*/
+        /*background-image: url("/ship_three/images/tl.png");*/
+        -webkit-transition: .5s ease-in-out;
+        -moz-transition: .5s ease-in-out;
+        -o-transition: .5s ease-in-out;
+    }
+
+    .navigation-main {
+        background-color: #fff;
+    }
+
+    .navigation-top {
+        background-color: #fff;
+    }
+
+</style>
+
+<div>
+    {% query 'picture' 'select' "order" '-id' 'limit' 5 as bhtList %}
+
+    <div class="swiper-container" id="base/banner15">
+        <div class="swiper-wrapper">
+            {% for bht in bhtList %}
+                <div class="swiper-slide">
+                    <div class="decoimg_b2">
+                        <a class="btn btn-" href="{{ bht.url }}"
+                           style="background-image: url('{{ bht.image }}'); height: 800px"></a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+
+    <script>
+        var mySwiper = new Swiper('#base/banner15', {
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            /*scrollbar: {
+                el: '.swiper-scrollbar',
+            },*/
+        })
+    </script>
+
+
+</div>
+
+
+<div>
+
+
+    <div class="container" style="background-color: #fff">
+
+
+        <div class="title-sn-title" style="margin:20px 0px 20px 0px;padding:20px;background-color:#FFFFFF">
+            <div class="sn-title" style="padding-top: 100px">
+                        <span>
+                 Guess you like       </span>
+            </div>
+            <div class="sn-content">
+
+
+                <div class="v2-case clearfix">
+                    {#                    {% query 'movies' 'select' 'limit' 4 "order" '-visit_count' as movieslist %}#}
+                    <div class="row v2-list">
+
+                        {% for r in movieslist %}
+                            <div class="col-md-3 v2-list-col">
+
+                                <a href="/movies/detail/?id={{ r.id }}" class="v2-case__box__img">
+                                    <div class="img-box pb120">
+                                        <div href="javascript:;" class="img"
+                                             style="background-image: url('{{ r.pic }}')"></div>
+                                    </div>
+                                </a>
+                                <a href="/movies/detail/?id={{ r.id }}" class="v2-case__h2">
+                                    <h3 style="font-size: 23px">
+                                        {{ r.title }}
+                                        <i></i>
+                                    </h3>
+                                    <h4>Score：{{ r.score }}</h4>
+{#                                    <h4>{{ r.intro|striptags|slice:40 }}</h4>#}
+                                </a>
+
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<div>
+
+
+    <div class="container" style="background-color: #fff">
+        <!-- 使用bootstrap css框架，container定宽，并剧中 https://v3.bootcss.com/css/#overview-container -->
+
+
+        <div class="title-sn-title" style="margin:20px 0px 20px 0px;padding:20px;background-color:#FFFFFF">
+            <div class="sn-title">
+                        <span>
+                 Hot Recommend      </span>
+            </div>
+            <div class="sn-content">
+
+
+                <div class="v2-case clearfix">
+                    {% query 'movies' 'select' 'limit' 4 "order" '-visit_count' as movielist211 %}
+                    <div class="row v2-list">
+
+                        {% for r in movielist211 %}
+                            <div class="col-md-3 v2-list-col">
+
+                                <a href="/movies/detail/?id={{ r.id }}" class="v2-case__box__img">
+                                    <div class="img-box pb120">
+                                        <div href="javascript:;" class="img"
+                                             style="background-image: url('{{ r.pic }}')"></div>
+                                    </div>
+                                </a>
+                                <a href="/movies/detail/?id={{ r.id }}" class="v2-case__h2">
+                                    <h3 style="font-size: 23px">
+                                        {{ r.title }}
+                                        <i></i>
+                                    </h3>
+                                    <h4>Score：{{ r.score }}</h4>
+                                    {#                                    <h4>{{ r.intro|striptags|slice:40 }}</h4>#}
+                                </a>
+
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <!-- container定宽，并剧中结束 --></div>
+
+
+</div>
+
+<div>
+
+
+    <div class="container" style="background-color: #fff">
+        <!-- 使用bootstrap css框架，container定宽，并剧中 https://v3.bootcss.com/css/#overview-container -->
+
+        <div class="row">
+
+
+            <div class="col-md-6">
+
+
+                <div class="title-sn-title" style="margin:20px 0px 20px 0px;padding:20px;background-color:#FFFFFF">
+                    <div class="sn-title">
+                        <span>
+                Most Comments            </span>
+                    </div>
+                    <div class="sn-content">
+
+
+                        <div class="">
+                            {% query 'movies' 'select' 'limit' 3 "order" '-issues_count' as movielist26 %}
+                            <div class="news-list">
+                                <ul>
+                                    {% for r in movielist26 %}
+                                        <li class="clearfix">
+                                            <a href="/movies/detail/?id={{ r.id }}">
+                                                <div class="thumb">
+                                                    <div class="img-box pb100">
+                                                        <div class="img"
+                                                             style="background-image: url('{{ r.pic }}')"></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                            <div class="news-content-text ">
+                                                <a href="/movies/detail/?id={{ r.id }}">
+                                                    <h3>{{ r.title }}</h3>
+                                                </a>
+                                                {#                                                <div class="description">#}
+                                                {#                                                    {{ r.intro|striptags|slice:24 }}#}
+                                                {#                                                </div>#}
+                                                <div class="other-content">
+                                                    <span>The Column：{{ r.column.name }}</span>
+                                                    <span>Director：{{ r.director }}</span>
+                                                    <span>Release time：{{ r.date }}</span>
+                                                    <span>Genre：{{ r.tags }}</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-6">
+
+
+                <div class="title-sn-title" style="margin:20px 0px 20px 0px;padding:20px;background-color:#FFFFFF">
+                    <div class="sn-title">
+                        <span>
+                A popular collection            </span>
+                    </div>
+                    <div class="sn-content">
+
+
+                        <div class="">
+                            {% query 'movies' 'select' 'limit' 3 "order" '-collection_count' as movielist %}
+                            <div class="news-list">
+                                <ul>
+                                    {% for r in movielist %}
+                                        <li class="clearfix">
+                                            <a href="/movies/detail/?id={{ r.id }}">
+                                                <div class="thumb">
+                                                    <div class="img-box pb100">
+                                                        <div class="img"
+                                                             style="background-image: url('{{ r.pic }}')"></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                            <div class="news-content-text ">
+                                                <a href="/movies/detail/?id={{ r.id }}">
+                                                    <h3>{{ r.title }}</h3>
+                                                </a>
+                                                {#                                                <div class="description">#}
+                                                {#                                                    {{ r.intro|striptags|slice:24 }}#}
+                                                {#                                                </div>#}
+                                                <div class="other-content">
+                                                    <span>The Column：{{ r.column.name }}</span>
+                                                    <span>Director：{{ r.director }}</span>
+                                                    <span>Release time：{{ r.date }}</span>
+                                                    <span>Genre：{{ r.tags }}</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- container定宽，并剧中结束 --></div>
+
+
+</div>
+
+
+<div>
+
+
+    <div class="container" style="background-color: #fff">
+        <!-- 使用bootstrap css框架，container定宽，并剧中 https://v3.bootcss.com/css/#overview-container -->
+
+
+        <div class="title-sn-title" style="margin:20px 0px 20px 0px;padding:20px;background-color:#FFFFFF">
+            <div class="sn-title">
+                        <span>
+                Highest score            </span>
+            </div>
+            <div class="sn-content">
+
+
+                <div class="v2-case clearfix">
+                    {% query 'movies' 'select' 'limit' 4 "order" '-score' as movielist35 %}
+                    <div class="row v2-list">
+
+                        {% for r in movielist35 %}
+                            <div class="col-md-3 v2-list-col">
+
+                                <a href="/movies/detail/?id={{ r.id }}" class="v2-case__box__img">
+                                    <div class="img-box pb120">
+                                        <div href="javascript:;" class="img"
+                                             style="background-image: url('{{ r.pic }}')"></div>
+                                    </div>
+                                </a>
+                                <a href="/movies/detail/?id={{ r.id }}" class="v2-case__h2">
+                                    <h3 style="font-size: 25px">
+                                        {{ r.title }}
+                                        <i></i>
+                                    </h3>
+                                    <h4>Score：{{ r.score }}</h4>
+                                    {#                                    <h4>{{ r.intro|striptags|slice:40 }}</h4>#}
+                                </a>
+
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <!-- container定宽，并剧中结束 --></div>
+
+
+</div>
+
+
+{% include "footer.html" %}
+{% include "foot.html" %}

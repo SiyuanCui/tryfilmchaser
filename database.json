@@ -1,0 +1,975 @@
+[
+  {
+    "model": "admins.admins",
+    "pk": 1,
+    "fields": {
+      "username": "admin",
+      "pwd": "admin"
+    }
+  },
+  {
+    "model": "yonghu.yonghu",
+    "pk": 1,
+    "fields": {
+      "yonghuming": "001",
+      "mima": "001",
+      "xingming": "����",
+      "xingbie": "��",
+      "shouji": "12388123888",
+      "youxiang": "13800138000@163.com",
+      "shenfenzheng": "130130200009050426",
+      "touxiang": "/upload/ea4dec4e6f885c94aa87173fe6059f759795.jpg"
+    }
+  },
+  {
+    "model": "yonghu.yonghu",
+    "pk": 2,
+    "fields": {
+      "yonghuming": "002",
+      "mima": "002",
+      "xingming": "���¸�",
+      "xingbie": "��",
+      "shouji": "12388123888",
+      "youxiang": "1235@qq.com",
+      "shenfenzheng": "440305199108312315",
+      "touxiang": "/upload/2c11fa945ffb5ce297005aaa26e67ca44606.jpg"
+    }
+  },
+  {
+    "model": "lunbotu.lunbotu",
+    "pk": 1,
+    "fields": {
+      "title": "1",
+      "image": "/upload/53fd2adc01b7589aa036680705e513a68778.jpg",
+      "url": "#"
+    }
+  },
+  {
+    "model": "lunbotu.lunbotu",
+    "pk": 2,
+    "fields": {
+      "title": "2",
+      "image": "/upload/7bc08c8646485d88a94eddbdd5089ea78799.jpg",
+      "url": "#"
+    }
+  },
+  {
+    "model": "pinglun.pinglun",
+    "pk": 1,
+    "fields": {
+      "biao": "dianying",
+      "biaoid": 6,
+      "biaoti": " è������",
+      "pingfen": "5",
+      "pinglunneirong": "����",
+      "pinglunren": "001",
+      "addtime": "2022-04-26T02:40:12.803"
+    }
+  },
+  {
+    "model": "pinglun.pinglun",
+    "pk": 2,
+    "fields": {
+      "biao": "dianying",
+      "biaoid": 6,
+      "biaoti": " è������",
+      "pingfen": "1",
+      "pinglunneirong": "����",
+      "pinglunren": "001",
+      "addtime": "2022-04-26T02:43:29.283"
+    }
+  },
+  {
+    "model": "pinglun.pinglun",
+    "pk": 5,
+    "fields": {
+      "biao": "dianying",
+      "biaoid": 9,
+      "biaoti": " ��ר��2",
+      "pingfen": "5",
+      "pinglunneirong": "�õ�Ӱ�õ�Ӱ�õ�Ӱ�õ�Ӱ�õ�Ӱ�õ�Ӱ�õ�Ӱ�õ�Ӱ�õ�Ӱ�õ�Ӱ�õ�Ӱ�õ�Ӱ�õ�Ӱ�õ�Ӱ",
+      "pinglunren": "002",
+      "addtime": "2022-04-26T02:58:39.043"
+    }
+  },
+  {
+    "model": "shoucang.shoucang",
+    "pk": 10,
+    "fields": {
+      "username": "admin",
+      "xwid": 6,
+      "biao": "dianying",
+      "biaoti": " è������",
+      "addtime": "2022-04-26T02:20:12.026"
+    }
+  },
+  {
+    "model": "shoucang.shoucang",
+    "pk": 11,
+    "fields": {
+      "username": "001",
+      "xwid": 6,
+      "biao": "dianying",
+      "biaoti": " è������",
+      "addtime": "2022-04-26T02:46:22.132"
+    }
+  },
+  {
+    "model": "shoucang.shoucang",
+    "pk": 13,
+    "fields": {
+      "username": "admin",
+      "xwid": 9,
+      "biao": "dianying",
+      "biaoti": " ��ר��2",
+      "addtime": "2022-04-26T02:54:23.531"
+    }
+  },
+  {
+    "model": "shoucang.shoucang",
+    "pk": 14,
+    "fields": {
+      "username": "002",
+      "xwid": 9,
+      "biao": "dianying",
+      "biaoti": " ��ר��2",
+      "addtime": "2022-04-26T02:58:23.181"
+    }
+  },
+  {
+    "model": "zhuantilanmu.zhuantilanmu",
+    "pk": 1,
+    "fields": {
+      "lanmumingcheng": "ϲ��"
+    }
+  },
+  {
+    "model": "zhuantilanmu.zhuantilanmu",
+    "pk": 2,
+    "fields": {
+      "lanmumingcheng": "����"
+    }
+  },
+  {
+    "model": "zhuantilanmu.zhuantilanmu",
+    "pk": 3,
+    "fields": {
+      "lanmumingcheng": "����"
+    }
+  },
+  {
+    "model": "zhuantilanmu.zhuantilanmu",
+    "pk": 4,
+    "fields": {
+      "lanmumingcheng": "�ֲ�"
+    }
+  },
+  {
+    "model": "zhuantilanmu.zhuantilanmu",
+    "pk": 5,
+    "fields": {
+      "lanmumingcheng": "�ƻ�"
+    }
+  },
+  {
+    "model": "zhuantilanmu.zhuantilanmu",
+    "pk": 6,
+    "fields": {
+      "lanmumingcheng": "����"
+    }
+  },
+  {
+    "model": "zhuantilanmu.zhuantilanmu",
+    "pk": 7,
+    "fields": {
+      "lanmumingcheng": "��ʷ"
+    }
+  },
+  {
+    "model": "zhuantilanmu.zhuantilanmu",
+    "pk": 8,
+    "fields": {
+      "lanmumingcheng": "����"
+    }
+  },
+  {
+    "model": "dianying.dianying",
+    "pk": 1,
+    "fields": {
+      "biaoti": "��ã����Ӣ",
+      "lanmu": 1,
+      "daoyan": "����",
+      "yanyuan": "����,��С�,����,�º�",
+      "shangyingshijian": "2021-02-12",
+      "shipin": "/static/upload/d41d8cd98f00b204e9800998ecf8427e.",
+      "haibao": "/static/upload/6a8e2f9aa096645288fc71ae2142bd77.png",
+      "biaoqian": "",
+      "shoucangliang": 0,
+      "liulanliang": 0,
+      "pinglunshu": 0,
+      "pingfen": "0.00",
+      "jianjie": "<p>2001���ĳһ�죬�ոտ��ϴ�ѧ�ļ����ᣨ���� �Σ������������е�һ�δ�����䡣һ����Ҫ��Ϊĸ�׽�������ȴ��ĸ��ͻ���������⣬����ʹ��֡��ڼ���������������״̬�£�������Ļص��� 1981 �꣬���������ĸ�����Ӣ����С� �Σ�������������Ӱ���룬������ۡ����ͬʱ��Ҳ��ʶ��һȺ���������ĺ����ѡ�������Ϊ��������Ƭ��������ء���������ƾ���Լ���ǰ��˼ά����ĸ�ס�������Ϊ���������ȴ������е�����......</p>",
+      "addtime": "2022-04-25T03:42:00"
+    }
+  },
+  {
+    "model": "dianying.dianying",
+    "pk": 2,
+    "fields": {
+      "biaoti": " ���˽�̽��3",
+      "lanmu": 1,
+      "daoyan": "��˼��",
+      "yanyuan": "����ǿ,���Ȼ,�޷�ľ��,�����",
+      "shangyingshijian": "2021-02-12",
+      "shipin": "/static/upload/d41d8cd98f00b204e9800998ecf8427e.",
+      "haibao": "/static/upload/d89e64b08614fa2b882296bfce06015c.png",
+      "biaoqian": "",
+      "shoucangliang": 0,
+      "liulanliang": 0,
+      "pinglunshu": 0,
+      "pingfen": "0.00",
+      "jianjie": "<p>�����ȡ�ŦԼ֮�󣬶����ٳ��󰸡����˽���̽���ʣ�����ǿ �Σ����ط磨���Ȼ �Σ�����̽Ұ��껣��޷�ľ�� �Σ�������ǰ���ư�����CRIMASTER������̽���а��е���̽����Ѷ��Ҳ��۶�����������ս����������һQ������������󰸸�����˷���룬һ��������ǿ��֮̽��Ľ���������Цչ������</p>",
+      "addtime": "2022-04-25T03:52:53"
+    }
+  },
+  {
+    "model": "dianying.dianying",
+    "pk": 3,
+    "fields": {
+      "biaoti": "����һ��С�컨",
+      "lanmu": 3,
+      "daoyan": "����",
+      "yanyuan": "����ǧ��,���ƴ�,������,������",
+      "shangyingshijian": "2020-12-31",
+      "shipin": "/static/upload/d41d8cd98f00b204e9800998ecf8427e.",
+      "haibao": "/static/upload/de1c1d76cf59758918d7bd534d1e028a.png",
+      "biaoqian": "",
+      "shoucangliang": 0,
+      "liulanliang": 1,
+      "pinglunshu": 0,
+      "pingfen": "0.00",
+      "jianjie": "<p>һ�������ܡ�����δ�����Ļ����к�Τһ��������ǧ�� �Σ���������һ�����š�ƽ�����硱�Ļ���Ů����СԶ�����ƴ� �Σ�������ҹ��¶̨�ϣ�����ң��ҹ�գ�չ���˶Ը�������������������������� ӰƬΧ������������ͥ����������켣չ����������һ���������ʵ���£�˼����ֱ����ÿһ����ͨ�˶������ٵ��ռ����⡪������������ʱ���ܵ���������ΨһҪ���ľ��ǰ�����ϧ��</p>",
+      "addtime": "2022-04-25T02:36:05"
+    }
+  },
+  {
+    "model": "dianying.dianying",
+    "pk": 4,
+    "fields": {
+      "biaoti": " �˳���ӿ",
+      "lanmu": 1,
+      "daoyan": "����־",
+      "yanyuan": "���»�,Ф��,����,����",
+      "shangyingshijian": "2021-02-12",
+      "shipin": "/static/upload/d41d8cd98f00b204e9800998ecf8427e.",
+      "haibao": "/static/upload/81b28177029ff5a63a076bc2ff78fd9a.png",
+      "biaoqian": "",
+      "shoucangliang": 0,
+      "liulanliang": 0,
+      "pinglunshu": 0,
+      "pingfen": "0.00",
+      "jianjie": "<p>2021�꣬������׼���������ţתǬ������ ����ɱ����ȫ�����»� �Σ�����įȺ�ݳ�С�ȣ�Ф�� �Σ���һ�������н�������ݡ�ɱ���ڵ���ȵ׵Ĺ����У����������˰�������Ⱥ����ð��ɱ�ֵĹ����У�����������������������һ�������Ļĵ�������Ц�Էǣ�������Ѫ���ڡ�</p>",
+      "addtime": "2022-04-25T03:19:24"
+    }
+  },
+  {
+    "model": "dianying.dianying",
+    "pk": 5,
+    "fields": {
+      "biaoti": " ��ɱС˵��",
+      "lanmu": 8,
+      "daoyan": "·��",
+      "yanyuan": "�׼���,����,���ӽ�,�ں�ΰ",
+      "shangyingshijian": "2021-02-12",
+      "shipin": "/static/upload/d41d8cd98f00b204e9800998ecf8427e.",
+      "haibao": "/static/upload/7498611bc1b53e449e0749f1d87d7ec6.png",
+      "biaoqian": "",
+      "shoucangliang": 0,
+      "liulanliang": 0,
+      "pinglunshu": 0,
+      "pingfen": "0.00",
+      "jianjie": "<p>������ʶ�������෢��б�ͳ�Σ���ɱ�޹�����������򱻳෢��׷ɱ���������𷴻����ںڼ׵�ָ���£�̤���˷���߱��֮·������С˵��·���ı��µ�������硣û�뵽С˵�Ľ��̣���ȻӰ������ʵ���硣��ʱһ�����ӽ����˴�ɱ��������</p>",
+      "addtime": "2022-04-25T03:31:37"
+    }
+  },
+  {
+    "model": "dianying.dianying",
+    "pk": 6,
+    "fields": {
+      "biaoti": " è������",
+      "lanmu": 2,
+      "daoyan": "��ķ��˹����",
+      "yanyuan": "���塤����˹��Ī��,���˶�������,֣��,���֡���˹��",
+      "shangyingshijian": "2021-02-26",
+      "shipin": "/upload/c2af28d917b2500d80bdb3792aead70a4466.mp4",
+      "haibao": "/static/upload/c59621f90a0bce14cfbe02cb2aee5d54.png",
+      "biaoqian": "����Ƭ,����",
+      "shoucangliang": 0,
+      "liulanliang": 0,
+      "pinglunshu": 0,
+      "pingfen": "0.00",
+      "jianjie": "<p>�����ڡ����ͻ���ǰϦ�����ŦԼ������������žƵ꣬��ʹ����߻��˿�����Ӷ����ķ����������Ȼ������֮������è���ս�п������Ϳ�������ҵ���ƻ����ͻ��������ٵ������Ƶꡣ���ܿ죬�������������ˣ�Ұ�Ĳ����Ļ��������˹������ıͬʱ�Ը�����������</p>",
+      "addtime": "2022-04-25T02:45:37"
+    }
+  },
+  {
+    "model": "dianying.dianying",
+    "pk": 7,
+    "fields": {
+      "biaoti": " �������߸����",
+      "lanmu": 2,
+      "daoyan": "����",
+      "yanyuan": "������,�ź�,������,��ʫ��",
+      "shangyingshijian": "2021-02-12",
+      "shipin": "/static/upload/d41d8cd98f00b204e9800998ecf8427e.",
+      "haibao": "/static/upload/426477d6e4267ee5a23899baf5bcd948.png",
+      "biaoqian": "",
+      "shoucangliang": 0,
+      "liulanliang": 2,
+      "pinglunshu": 0,
+      "pingfen": "0.00",
+      "jianjie": "<p>��ǧ��ǰ�����¶�������������٣�������߸��һ�ƻ����������޵���������ת��Ͷ̥����һ���붫���пᰮ��������Ѫ������������������Ȼ���������߸��Թ��δ�ưո��ݣ�������߸Ԫ��������飬���޷����ѱ�����Ͼ�ɱ��������������Σ�ڵ�Ϧ���������Ƿ��ܹ�����߸Ԫ�񲢼���ս����Ϊ�ֿ������Ӣ�ۣ������е������ܷ�õ����ȣ�</p>",
+      "addtime": "2022-04-25T02:24:12"
+    }
+  },
+  {
+    "model": "dianying.dianying",
+    "pk": 8,
+    "fields": {
+      "biaoti": " ������",
+      "lanmu": 4,
+      "daoyan": "����",
+      "yanyuan": "����ɭ,����,����,�����",
+      "shangyingshijian": "2021-02-28",
+      "shipin": "/static/upload/d41d8cd98f00b204e9800998ecf8427e.",
+      "haibao": "/static/upload/07a46be09eda26f60c42e2196fbc5141.png",
+      "biaoqian": "",
+      "shoucangliang": 0,
+      "liulanliang": 1,
+      "pinglunshu": 0,
+      "pingfen": "0.00",
+      "jianjie": "<p>��ҹ������ֲ���Сʬ����������������ɫ��Ӱ�������֣���ɭ�����Ĺ��������˷�������ٿ�����ֹ��쳤���������޷���еġ���ѹ�����ֲ��龰һ�ٽ��٣�һ��Ů��������Ѫ�Ȳп�ĸ������֮����Ȼ��������һ�ˣ��������������Թ������˸��壬�Ӵ����ӹ��ȸ����˹���Լ�����֣�������������ռ�����һ����������</p>",
+      "addtime": "2022-04-25T03:09:12"
+    }
+  },
+  {
+    "model": "dianying.dianying",
+    "pk": 9,
+    "fields": {
+      "biaoti": " ��ר��2",
+      "lanmu": 8,
+      "daoyan": "������",
+      "yanyuan": "���»�,������,����,л����",
+      "shangyingshijian": "2020-12-24",
+      "shipin": "/upload/18440639f5c35497b8fc37259a6d82819550.mp4",
+      "haibao": "/static/upload/f2bd6a1727fc073ca3afd4e17c7541ea.png",
+      "biaoqian": "���»�",
+      "shoucangliang": 2,
+      "liulanliang": 12,
+      "pinglunshu": 2,
+      "pingfen": "3.00",
+      "jianjie": "<p>���ĳ��������ը����ǰ��ר���˳˷磨���»� �Σ���������ֳ�������������ǣ�����С����Ѻ���˳˷�ֻ��һ������һ�߲������࣬Ȼ�������ĺ��Ѷ�׿�ģ������� �Σ�������ǰŮ�����ᣨ���� �Σ�ȴ�������������ν�Ȼ��ͬ�ľ������мƻ��ı�ը���Ӷ���������������ȴԽ��Խ��˷���롭��</p>",
+      "addtime": "2022-04-25T04:03:19"
+    }
+  },
+  {
+    "model": "dianying.dianying",
+    "pk": 10,
+    "fields": {
+      "biaoti": "�Һ��ҵļ���",
+      "lanmu": 3,
+      "daoyan": "����",
+      "yanyuan": "���,����,�Ʋ�,��ΰ",
+      "shangyingshijian": "2020-10-01",
+      "shipin": "/static/upload/d41d8cd98f00b204e9800998ecf8427e.",
+      "haibao": "/static/upload/0b519f24979b0783771f91a9e302dc93.png",
+      "biaoqian": "",
+      "shoucangliang": 0,
+      "liulanliang": 8,
+      "pinglunshu": 0,
+      "pingfen": "0.00",
+      "jianjie": "<p>��Ӱ���Һ��ҵļ��硷����2020����죬�������Һ��ҵ���������崴���ķ�ʽ��������ı�����ܼ��ƣ����Ƶ����ܵ��ݣ���һ�׵����ܲ߻������ơ���ῡ���˼�ϡ��Ʒ�&amp;���ħ���˳�&amp;���ü�ֱ�ִ��������¡�</p>",
+      "addtime": "2022-04-25T02:56:54"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add ����Ա",
+      "content_type": 1,
+      "codename": "add_admins"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change ����Ա",
+      "content_type": 1,
+      "codename": "change_admins"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete ����Ա",
+      "content_type": 1,
+      "codename": "delete_admins"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view ����Ա",
+      "content_type": 1,
+      "codename": "view_admins"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add �û�",
+      "content_type": 2,
+      "codename": "add_yonghu"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change �û�",
+      "content_type": 2,
+      "codename": "change_yonghu"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete �û�",
+      "content_type": 2,
+      "codename": "delete_yonghu"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view �û�",
+      "content_type": 2,
+      "codename": "view_yonghu"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add �ֲ�ͼ",
+      "content_type": 3,
+      "codename": "add_lunbotu"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change �ֲ�ͼ",
+      "content_type": 3,
+      "codename": "change_lunbotu"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete �ֲ�ͼ",
+      "content_type": 3,
+      "codename": "delete_lunbotu"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view �ֲ�ͼ",
+      "content_type": 3,
+      "codename": "view_lunbotu"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add ����",
+      "content_type": 4,
+      "codename": "add_pinglun"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change ����",
+      "content_type": 4,
+      "codename": "change_pinglun"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete ����",
+      "content_type": 4,
+      "codename": "delete_pinglun"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view ����",
+      "content_type": 4,
+      "codename": "view_pinglun"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add �ղ�",
+      "content_type": 5,
+      "codename": "add_shoucang"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change �ղ�",
+      "content_type": 5,
+      "codename": "change_shoucang"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete �ղ�",
+      "content_type": 5,
+      "codename": "delete_shoucang"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view �ղ�",
+      "content_type": 5,
+      "codename": "view_shoucang"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add ר����Ŀ",
+      "content_type": 6,
+      "codename": "add_zhuantilanmu"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change ר����Ŀ",
+      "content_type": 6,
+      "codename": "change_zhuantilanmu"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete ר����Ŀ",
+      "content_type": 6,
+      "codename": "delete_zhuantilanmu"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view ר����Ŀ",
+      "content_type": 6,
+      "codename": "view_zhuantilanmu"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add ��Ӱ",
+      "content_type": 7,
+      "codename": "add_dianying"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change ��Ӱ",
+      "content_type": 7,
+      "codename": "change_dianying"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete ��Ӱ",
+      "content_type": 7,
+      "codename": "delete_dianying"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view ��Ӱ",
+      "content_type": 7,
+      "codename": "view_dianying"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 8,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 8,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 8,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 8,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 9,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 9,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 9,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 9,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 10,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 10,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 10,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 10,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 11,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 11,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 11,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 11,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 12,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 12,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 12,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 12,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 13,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 13,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 13,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 13,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admins",
+      "model": "admins"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "yonghu",
+      "model": "yonghu"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "lunbotu",
+      "model": "lunbotu"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "pinglun",
+      "model": "pinglun"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "shoucang",
+      "model": "shoucang"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "zhuantilanmu",
+      "model": "zhuantilanmu"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "dianying",
+      "model": "dianying"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "auth",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "wu4haqk5mol4935i77gp0k2jg44r9fwr",
+    "fields": {
+      "session_data": "eyJjYXB0Y2hhQ29kZSI6IjY1MTQifQ:1nj3y1:MDVNJgzQKJAx58zmv3M8p3Hi1swo1ihNoReuictSHKo",
+      "expire_date": "2022-05-10T03:01:49.138"
+    }
+  }
+]

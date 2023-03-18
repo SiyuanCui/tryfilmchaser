@@ -1,0 +1,74 @@
+{% load utils %} {% include "head.html" %}
+
+<div style="padding: 10px" class="admin-content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="module-name"> Features</span>
+            <span>List</span>
+        </div>
+        <div class="panel-body">
+            <div class="pa10 bg-warning">
+                <form class="form-inline" id="formSearch" action="?">
+                    <!-- form 标签开始 -->
+
+                    <div class="form-group">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </div>
+
+                    <div class="form-group">
+                        Column name
+
+                        <input type="text" class="form-control" style="" name="lanmumingcheng"
+                               value="{{ request.GET.lanmumingcheng }}"/>
+                    </div>
+                    <select class="form-control" name="order" id="orderby">
+                        <option value="id"> By publication time</option>
+                    </select>
+                    <select class="form-control" name="sort" id="sort">
+                        <option value="desc"> in reverse order</option>
+                        <option value="asc"> Ascending</option>
+                    </select>
+                    <script>
+                        $("#orderby").val("{{ orderby }}");
+                        $("#sort").val("{{ sort }}");
+                    </script>
+                    <button type="submit" class="btn btn-default">search</button>
+
+                    <!--form标签结束-->
+                </form>
+            </div>
+
+            <div class="list-table">
+                <table width="100%" border="1" class="table table-list table-bordered table-hover">
+                    <thead>
+                    <tr align="center">
+                        <th width="60" data-field="item"> Serial number</th>
+                        <th> Column name</th>
+                        <th width="220" data-field="handler"> Operation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for map in list %} {% with i=forloop.counter %}
+                        <tr id="{{ map.id }}" pid="">
+                            <td width="30" align="center">
+                                <label> {{ i }} </label>
+                            </td>
+                            <td>{{ map.lanmumingcheng }}</td>
+                            <td align="center">
+                                <a href="/columns/admin/updt/? id={{ map.id }}"> Edit </a>
+
+                                <a href="/columns/delete/? id={{ map.id }}"
+                                   onclick="return confirm(' Are you sure you want to delete? ')"> Delete </a>
+                                <! --qiatnalijne-->
+                            </td>
+                        </tr>
+                    {% endwith %}{% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            {% include "page.html" %}
+        </div>
+    </div>
+</div>
+{% include "foot.html" %}

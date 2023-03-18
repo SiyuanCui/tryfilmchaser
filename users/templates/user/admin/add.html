@@ -1,0 +1,178 @@
+{% load utils %} {% include "head.html" %}
+<script src="/static/js/jquery.validate.js"></script>
+<link href="/static/upload/upload.css" rel="stylesheet" />
+<script src="/static/upload/upload.js"></script>
+
+<div style="padding: 10px" class="admin-content">
+    <div class="container">
+        <!-- 使用bootstrap css框架，container定宽，并剧中 https://v3.bootcss.com/css/#overview-container -->
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Add User:</div>
+            <div class="panel-body">
+                <form action="/users/insert/" method="post" name="form1" id="form1">
+                    <!-- form 标签开始 -->
+    <div class="form-group">
+                    <div class="row">
+                        <label style="text-align: right" class="col-sm-2 hiddex-xs">Username<span style="color: red">*</span></label>
+                        <div class="col-sm-10">
+                            <input
+                                type="text"
+                                class="form-control"
+
+                                style="width: 150px"
+                                data-rule-required="true"
+                                data-msg-required="Please fill in the user name"
+                                remote="/common/checkno/?checktype=insert&table=yonghu&col=yonghuming"
+                                data-msg-remote="Repeat the content"
+                                id="yonghuming"
+                                name="yonghuming"
+                                value=""
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label style="text-align: right" class="col-sm-2 hiddex-xs">Password<span style="color: red">*</span></label>
+                        <div class="col-sm-10">
+                            <input
+                                type="password"
+                                class="form-control"
+                                placeholder="Enter the password"
+                                style="width: 150px"
+                                data-rule-required="true"
+                                data-msg-required="Please Enter the password"
+                                id="mima"
+                                name="mima"
+                                value=""
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label style="text-align: right" class="col-sm-2 hiddex-xs">Name<span style="color: red">*</span></label>
+                        <div class="col-sm-10">
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Enter your name"
+                                style="width: 150px"
+                                data-rule-required="true"
+                                data-msg-required="Please Enter your name"
+                                id="xingming"
+                                name="xingming"
+                                value=""
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label style="text-align: right" class="col-sm-2 hiddex-xs">Gender</label>
+                        <div class="col-sm-10">
+                            <select class="form-control class_xingbie5" data-value="" id="xingbie" name="xingbie" style="width: 250px">
+                                <option value="男">Male</option>
+                                <option value="女">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label style="text-align: right" class="col-sm-2 hiddex-xs">Mobile</label>
+                        <div class="col-sm-10">
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Enter your mobile number"
+                                style="width: 150px"
+                                tel="true"
+                                data-msg-phone="Please enter the correct fixed number"
+                                id="shouji"
+                                name="shouji"
+                                value=""
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label style="text-align: right" class="col-sm-2 hiddex-xs">Email</label>
+                        <div class="col-sm-10">
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Enter your email"
+                                style="width: 150px"
+                                email="true"
+                                data-msg-email="Please enter a valid email address"
+                                id="youxiang"
+                                name="youxiang"
+                                value=""
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label style="text-align: right" class="col-sm-2 hiddex-xs">Id card</label>
+                        <div class="col-sm-10">
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="d card"
+                                style="width: 150px"
+                                idcard="true"
+                                data-msg-email="d card"
+                                id="shenfenzheng"
+                                name="shenfenzheng"
+                                value=""
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label style="text-align: right" class="col-sm-2 hiddex-xs">Head portrait</label>
+                        <div class="col-sm-10">
+                            <div class="file-upload-box file-upload-image file-upload-box-1x" data-image="true" data-url="/">
+                                <div class="thumb">
+                                    <img src="" />
+                                </div>
+                                <a href="javascript:;" class="close">╳</a>
+                                <div class="upload-btn">
+                                    <span> upload pictures </span>
+                                </div>
+                                <input type="hidden" name="touxiang" id="touxiang" value="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label style="text-align: right" class="col-sm-2 hiddex-xs"> </label>
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary" name="Submit">Submit</button>
+                            <button type="reset" class="btn btn-default" name="Submit2">Reset</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                    <!--form标签结束-->
+                </form>
+            </div>
+        </div>
+
+        <!-- container定宽，并剧中结束 -->
+    </div>
+
+    <script>
+        $(function () {
+            $("#form1").validate();
+        });
+    </script>
+</div>
+{% include "foot.html" %}

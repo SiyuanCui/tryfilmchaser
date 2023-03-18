@@ -1,0 +1,32 @@
+{% load utils %} {% include "head.html" %}
+<script src="/static/js/jquery.validate.js"></script>
+
+<div style="padding: 10px" class="admin-content">
+    <div class="container">
+        <!-- 使用bootstrap css框架，container定宽，并剧中 https://v3.bootcss.com/css/#overview-container -->
+
+        <div class="panel panel-default">
+           <div class="panel-heading"> Editor's comments: </div>
+            <div class="panel-body">
+                <form action="/issues/update/" method="post" name="form1" id="form1">
+                    <!-- form 标签开始 -->
+
+                   <div class="form-group"> <div class="row"> <label style="text-align: right" class="col-sm-2 hiddex-xs"> Rating <span style="color: red"> * </span></label> <div class="col-sm-10"> <input type="text" class="form-control" Placeholder = "Enter rating" style="width: 250px" data-rule-required="true" Data-msg-required = "Please fill in the score" id="pingfen" name="pingfen" value="{{ mmm.pingfen }}" /> </div> </div> </div>
+                   <div class="form-group"> <div class="row"> <label style="text-align: right" class="col-sm-2 hiddex-xs"> Comment content </label> <div class="col-sm-10"> <textarea style="width: 80%; height: 120px" class="form-control" placeholder="Enter comment" id="pinglunneirong" name="pinglunneirong"> {{ mmm.pinglunneirong }}</textarea > </div> </div> </div>
+                   <div class="form-group"> <div class="row"> <label style="text-align: right" class="col-sm-2 hiddex-xs"> </label> <div class="col-sm-10"> <input name="id" value="{{ mmm.id }}" type="hidden" /> <input name="referer" value="{{ request.headers.referer }}" type="hidden" /> <input name="updtself" value="{{ updtself }}" type="hidden" /> <button type="submit" class="btn btn-primary" name="Submit"> Submit </button> <button type="reset" class="btn btn-default" name="Submit2"> Reset </button> </div> </div> </div>
+
+                    <!--form标签结束-->
+                </form>
+            </div>
+        </div>
+
+        <!-- container定宽，并剧中结束 -->
+    </div>
+
+    <script>
+        $(function () {
+            $("#form1").validate();
+        });
+    </script>
+</div>
+{% include "foot.html" %}

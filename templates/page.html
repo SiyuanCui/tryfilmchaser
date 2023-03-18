@@ -1,0 +1,24 @@
+{% if is_paginated %}
+    <ul class="pagination pagination-sm pagination-xs">
+        {% if page.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ page.previous_page_number }}">上一页</a></li>
+        {% else %}
+            <li class="page-item disabled"><span class="page-link">Last Page</span></li>
+        {% endif %}
+
+        {% for i in page.paginator.page_range %}
+            {% if page.number == i %}
+                <li class="page-item active"><span class="page-link"> {{ i }} <span
+                        class="sr-only">{{ i }}</span></span></li>
+            {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+        {% endfor %}
+
+        {% if page.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ page.next_page_number }}">Next Page</a></li>
+        {% else %}
+            <li class="page-item disabled"><span class="page-link">Next Page</span></li>
+        {% endif %}
+    </ul>
+{% endif %}

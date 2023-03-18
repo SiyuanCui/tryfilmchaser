@@ -1,0 +1,148 @@
+{% load utils %} {% include "head.html" %}
+<script src="/static/js/datepicker/WdatePicker.js"></script>
+
+<div style="padding: 10px" class="admin-content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="module-name"> Film </span>
+            <span>List</span>
+        </div>
+        <div class="panel-body">
+            <div class="pa10 bg-warning">
+                <form class="form-inline" id="formSearch" action="?">
+                    <!-- form 标签开始 -->
+
+                    <div class="form-group">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </div>
+                    <div class="form-group">
+                        Keyword
+
+                        <input type="text" class="form-control" name="keyword" value="{{ request.GET.keyword }}" placeholder="输入关键字" />
+                    </div>
+
+                    <div class="form-group">
+                        Title
+
+                        <input type="text" class="form-control" style="" name="biaoti" value="{{ request.GET.biaoti }}" />
+                    </div>
+                    <div class="form-group">
+                        The column
+
+                        <select
+                            class="form-control class_lanmu1"
+                            data-value="{{ request.GET.lanmu }}"
+                            data-rule-required="true"
+                            data-msg-required="Please fill out the columns"
+                            id="lanmu"
+                            name="lanmu"
+                        >
+                            <option value="">Please select </option>
+                            {% sql "SELECT * FROM columns ORDER BY id desc" 'select' as select %} {% for m in select %}
+                            <option value="{{ m.id }}">{{ m.lanmumingcheng }}</option>
+                            {% endfor %}
+                        </select>
+                        <script>
+                            $(".class_lanmu1").val($(".class_lanmu1").attr("data-value"));
+                        </script>
+                    </div>
+                    <div class="form-group">
+                        The director
+
+                        <input type="text" class="form-control" style="" name="daoyan" value="{{ request.GET.daoyan }}" />
+                    </div>
+                    <div class="form-group">
+                        Actor
+
+                        <input type="text" class="form-control" name="yanyuan" value="{{ request.GET.yanyuan }}" />
+                    </div>
+                    <div class="form-group">
+                        Release time
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="shangyingshijian_start"
+                            readonly="readonly"
+                            onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',lang:'zh-cn'})"
+                        />-<input type="text" class="form-control" name="shangyingshijian_end" readonly="readonly" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',lang:'zh-cn'})" />
+                    </div>
+                    <div class="form-group">
+                       Label
+
+                        <input type="text" class="form-control" name="biaoqian" value="{{ request.GET.biaoqian }}" />
+                    </div>
+                    <select class="form-control" name="order" id="orderby">
+{#                        <option value="id">According to the published time</option>#}
+{#                        <option value="collection_count">按收藏量</option>#}
+{#                        <option value="visit_count">按浏览量</option>#}
+{#                        <option value="issues_count">按评论数</option>#}
+{#                        <option value="score">按评分</option>#}
+{#                        <option value="addtime">按添加时间</option>#}
+                                 <option value="id">According to the published time</option>
+                    <option value="shoucangliang">According to the collection</option>
+                    <option value="liulanliang">According to the traffic</option>
+                    <option value="pinglunshu">According to the comments</option>
+                    <option value="pingfen">According to the score</option>
+                    <option value="addtime">According to add time</option>
+                    </select>
+                    <select class="form-control" name="sort" id="sort">
+                   <option value="desc">Reverse order</option>
+                    <option value="asc">Ascending order</option>
+                    </select>
+                    <script>
+                        $("#orderby").val("{{ orderby }}");
+                        $("#sort").val("{{ sort }}");
+                    </script>
+                    <button type="submit" class="btn btn-default">Search</button>
+
+                    <!--form标签结束-->
+                </form>
+            </div>
+
+            <div class="list-table">
+                <table width="100%" border="1" class="table table-list table-bordered table-hover">
+                    <thead>
+                        <tr align="center">
+                            <th width="60" data-field="item">序号</th>
+                        <th> Title </th> <th> Column </th> <th> Director </th> <th> Actors </th> <th> Release time </th> <th> Posters </th> <th> Label </th> <th> Collection </th> Number </th> <th> of views Number of </th> <th> comments <th> Rating </th> <th> Add time </th>
+                            <th width="220" data-field="handler">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for map in list %} {% with i=forloop.counter %}
+                        <tr id="{{ map.id }}" pid="">
+                            <td width="30" align="center">
+                                <label> {{ i }} </label>
+                            </td>
+                            <td>{{ map.biaoti }}</td>
+                            <td>{{ map.lanmu.lanmumingcheng }}</td>
+                            <td>{{ map.daoyan }}</td>
+                            <td>{{ map.yanyuan }}</td>
+                            <td>{{ map.shangyingshijian }}</td>
+                            <td>{% if "" == map.haibao %}-{% else %}<img width="100" src="{{ map.haibao }}" />{% endif %}</td>
+                            <td>{{ map.biaoqian }}</td>
+                            <td>{{ map.shoucangliang }}</td>
+                            <td>{{ map.liulanliang }}</td>
+                            <td>{{ map.pinglunshu }}</td>
+                            <td>{{ map.pingfen }}</td>
+                            <td>{{ map.addtime|date:'Y-m-d H:i:s' }}</td>
+                            <td align="center">
+                                <a href="/movies/admin/detail/?id={{ map.id }}">Details</a>
+
+                                <a href="/movies/admin/updt/?id={{ map.id }}">Edite</a>
+
+                                <a href="/movies/delete/?id={{ map.id }}" onclick="return confirm('Sure you want to delete？')">delete</a>
+                                <!--qiatnalijne-->
+                            </td>
+                        </tr>
+                        {% endwith %}{% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            {% include "page.html" %}
+        </div>
+    </div>
+</div>
+{% include "foot.html" %}

@@ -1,0 +1,172 @@
+{% load utils %} {% include "head.html" %}
+<script src="/static/js/jquery.validate.js"></script>
+<link href="/static/upload/upload.css" rel="stylesheet"/>
+<script src="/static/upload/upload.js"></script>
+
+<div style="padding: 10px" class="admin-content">
+    <div class="container">
+        <!-- 使用bootstrap css框架，container定宽，并剧中 https://v3.bootcss.com/css/#overview-container -->
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Edit user:</div>
+            <div class="panel-body">
+                <form action="/users/update/" method="post" name="form1" id="form1">
+                    <!-- form 标签开始 -->
+
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs"> <span
+                                    style="color: red">*</span></label>
+                            <div class="col-sm-10">
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder=" Input user name"
+                                        readonly
+                                        style="width: 150px"
+                                        data-rule-required="true"
+                                        data-msg-required=" Please fill in user name"
+                                        remote="/common/checkno/? checktype=update&id={{ mmm.id }}&table=yonghu&col=yonghuming"
+                                        data-msg-remote=" Contents duplicated"
+                                        id="yonghuming"
+                                        name="yonghuming"
+                                        value="{{ mmm.yonghuming }}"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs"> <span
+                                    style="color: red">*</span></label>
+                            <div class="col-sm-10">
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder=" input name"
+                                        style="width: 150px"
+                                        data-rule-required="true"
+                                        data-msg-required=" Please fill in name"
+                                        id="xingming"
+                                        name="xingming"
+                                        value="{{ mmm.xingming }}"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs"> </label>
+                            <div class="col-sm-10">
+                                <select class="form-control class_xingbie4" data-value="{{ mmm.xingbie }}" id="xingbie"
+                                        name="xingbie" style="width:  250px">
+                                    <option value=" male "> male</option>
+                                    <option value=" female "> female</option>
+                                </select>
+                                <script>
+                                    $(".class_xingbie4").val($(".class_xingbie4").attr("data-value"));
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs"> </label>
+                            <div class="col-sm-10">
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder=" input phone"
+                                        style="width: 150px"
+                                        tel="true"
+                                        data-msg-phone=" Please enter the correct fixed number"
+                                        id="shouji"
+                                        name="shouji"
+                                        value="{{ mmm.shouji }}"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs"> </label>
+                            <div class="col-sm-10">
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder=input mailbox
+                                        style="width: 150px"
+                                        email="true"
+                                        data-msg-email=" Please enter a valid email address"
+                                        id="youxiang"
+                                        name="youxiang"
+                                        value="{{ mmm.youxiang }}"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs"> </label>
+                            <div class="col-sm-10">
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder=input ID
+                                        style="width: 150px"
+                                        idcard="true"
+                                        data-msg-email=" Please enter valid ID number"
+                                        id="shenfenzheng"
+                                        name="shenfenzheng"
+                                        value="{{ mmm.shenfenzheng }}"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs"> </label>
+                            <div class="col-sm-10">
+                                <div class="file-upload-box file-upload-image file-upload-box-1x" data-image="true"
+                                     data-url="/">
+                                    <div class="thumb">
+                                        <img src="{{ mmm.touxiang }}"/>
+                                    </div>
+                                    <a href="javascript:;" Class="close"> ╳ < / a >
+                                        <div class="upload-btn">
+                                            <span> Upload pictures </span>
+                                        </div>
+                                        <input type="hidden" name="touxiang" id="touxiang" value="{{ mmm.touxiang }}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label style="text-align: right" class="col-sm-2 hiddex-xs"> </label>
+                            <div class="col-sm-10">
+                                <input name="id" value="{{ mmm.id }}" type="hidden"/>
+                                <input name="referer" value="/yonghu/admin/updt/? id={{ mmm.id }}" type="hidden"/>
+
+
+                                <button type="submit" class="btn btn-primary" name="Submit"> Submit</button>
+                                <button type="reset" class="btn btn-default" name="Submit2"> Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--form标签结束-->
+                </form>
+            </div>
+        </div>
+
+        <!-- container定宽，并剧中结束 -->
+    </div>
+
+    <script>
+        $(function () {
+            $("#form1").validate();
+        });
+    </script>
+</div>
+{% include "foot.html" %}
